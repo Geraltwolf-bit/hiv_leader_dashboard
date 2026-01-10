@@ -110,7 +110,7 @@ elif st.session_state.page_num == 3:
     st.plotly_chart(fig, use_container_width = True)
 
     #Picture 2: price
-    st.markdown(body = "## Цена", text_alignment = 'center')
+    st.markdown(body = "## Цена за тест в рублях", text_alignment = 'center')
     p1, p2 = st.columns(2)
     with p1:
         df = df.sort_values(by='price', ascending=False)
