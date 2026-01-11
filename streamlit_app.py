@@ -79,7 +79,7 @@ elif st.session_state.page_num == 3:
     df = load_sales()
 
     #Picture 1: total sales
-    st.markdown(body = "## Общий объём продаж в млн. руб.", text_alignment = 'center')
+    st.markdown(body = "## Объём продаж в млн. руб.", text_alignment = 'center')
     total = df.groupby('vendor')['total'].sum().reset_index().sort_values(by = 'total', ascending=False)
     fig = px.bar(total, x = 'vendor', y = 'total', text_auto = '.3s', labels = {
         'vendor': 'Производитель',
