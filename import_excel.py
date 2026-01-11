@@ -3,15 +3,13 @@ import psycopg2
 import os
 import glob
 from psycopg2 import sql
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def import_excel():
-    conn = psycopg2.connect(
-        host = 'localhost',
-        database = 'hiv_dashboard_db',
-        user = 'hiv_user',
-        password = '123',
-        port = 5433
-    )
+    database_url = os.getenv('DATABASE_URL')
+    conn = psycopg2.connect(database_url)
 
     excel_files = glob.glob('*.xlsx')
 

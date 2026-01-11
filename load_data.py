@@ -1,17 +1,13 @@
 import pandas as pd
 import psycopg2
 from psycopg2 import sql
+import os
+from dotenv import load_dotenv
 
-db_params = {
-    'host': 'localhost',
-    'database': 'hiv_dashboard_db',
-    'user': 'hiv_user',
-    'password': '123',
-    'port': '5433'
-}
+load_dotenv()
 
+database_url = os.getenv('DATABASE_URL')
 csv_path = 'hiv.csv'
-
 table_name = 'sales'
 
 def createtable(conn, cur):
@@ -61,7 +57,7 @@ def upload(conn, cur, csv_path):
 
 def main():
     try:
-        conn = psycopg2.connect(**db_params)
+        conn = psycopg2.connect(database_url)
         cur = conn.cursor()
         print('Connected to PostgreSQL')
 
