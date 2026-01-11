@@ -6,7 +6,7 @@
 - PostgreSQL to storage the data.
 
 2) Python:
-- Pandas to clean the data.
 - Psycopg2 to connect to the database.
+- Pandas to get the insights.
 - Plotly to visualize the insights.
 - Streamlit to build the dashboard.
